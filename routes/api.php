@@ -17,3 +17,37 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*
+|--------------------------------------------------------------------------
+| No Validation 
+|--------------------------------------------------------------------------
+|
+| No validation is required for this links
+|
+*/
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| With Validation 
+|--------------------------------------------------------------------------
+|
+| validation is required for this links
+|
+*/
+
+// Route::post("", 'UsersController@token_check');
+
+// update 
+Route::group([
+    'prefix' => 'challenge'
+], function () {
+
+    Route::post("add", 'ChallengesController@insert');
+    Route::post("update/{id}", 'ChallengesController@update');
+
+
+});
